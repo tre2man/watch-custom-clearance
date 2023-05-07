@@ -1,12 +1,5 @@
 import {useState} from 'react';
-import {
-  Button,
-  Pressable,
-  SafeAreaView,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import {Pressable, TextInput, View} from 'react-native';
 import SearchLogo from '../Images/search.svg';
 
 const SearchBox = ({onSearch}: {onSearch: (input: string) => void}) => {
@@ -36,6 +29,10 @@ const SearchBox = ({onSearch}: {onSearch: (input: string) => void}) => {
           onChangeText={setInput}
           value={input}
           placeholder=" 통관부호를 입력하세요."
+          placeholderTextColor="gray"
+          style={{
+            color: 'black',
+          }}
         />
       </View>
       <View style={{flex: 1}}>

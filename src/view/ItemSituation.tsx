@@ -5,10 +5,7 @@ import Table from './Table';
 const ItemSituations = ({route}: {route: any}) => {
   const data = route?.params?.data;
 
-  useEffect(() => {
-    console.log('시츄에이션');
-    console.log(data);
-  }, [data]);
+  useEffect(() => {}, [data]);
 
   return (
     <View style={{margin: 10}}>

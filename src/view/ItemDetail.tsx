@@ -42,13 +42,17 @@ const ItemDetail = ({route, navigation}: {route: any; navigation: any}) => {
                 borderRadius: 5,
                 padding: 10,
                 elevation: 2,
-                height: 35,
+                height: 40,
                 backgroundColor: 'gray',
               }}
               onPress={() => {
                 navigation.navigate('상품상태', {data: data?.printResultListL});
               }}>
-              <Text style={{color: 'white', textAlign: 'center'}}>
+              <Text
+                style={{
+                  color: 'white',
+                  textAlign: 'center',
+                }}>
                 자세한 정보 확인
               </Text>
             </Pressable>
@@ -62,6 +66,7 @@ const ItemDetail = ({route, navigation}: {route: any; navigation: any}) => {
 const styles = StyleSheet.create({
   text: {
     marginBottom: 10,
+    color: 'black',
   },
 });
 

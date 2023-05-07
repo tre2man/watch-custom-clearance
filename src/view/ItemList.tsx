@@ -20,7 +20,6 @@ const OneItem = ({
   return (
     <TouchableOpacity
       onPress={() => {
-        console.log('onPress, cargMtNo', oneData.cargMtNo);
         navigation.navigate('상품정보', {cargMtNo: oneData.cargMtNo});
       }}
       key={key}
@@ -37,9 +36,9 @@ const OneItem = ({
         borderColor: 'gray',
       }}>
       <View>
-        <Text>{`반출일자 : ${oneData.acptDt}`}</Text>
-        <Text>{`현재상태 : ${oneData.csclForm}`}</Text>
-        <Text>{`B/L : ${oneData.hblNo}`}</Text>
+        <Text style={{color: 'black'}}>{`반출일자 : ${oneData.acptDt}`}</Text>
+        <Text style={{color: 'black'}}>{`현재상태 : ${oneData.csclForm}`}</Text>
+        <Text style={{color: 'black'}}>{`B/L : ${oneData.hblNo}`}</Text>
       </View>
       <View
         style={{

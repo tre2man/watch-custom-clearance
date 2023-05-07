@@ -8,9 +8,7 @@ const Main = ({navigation}: {navigation: any}) => {
   const [searchText, setSearchText] = useState<string>('');
   const [isLoading, data] = GetData(searchText);
 
-  useEffect(() => {
-    console.log({searchText});
-  }, [searchText]);
+  useEffect(() => {}, [searchText]);
 
   return (
     <View

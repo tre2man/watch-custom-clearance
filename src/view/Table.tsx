@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import dayjs from 'dayjs';
 import he from 'he';
 
@@ -25,11 +25,16 @@ const Table = ({dataList}: {dataList: any[]}) => {
               borderColor: 'gray',
             }}>
             <View>
-              <Text>{`처리시간 : ${dayjs(data.prcsDttm).format(
-                'YYYY:MM:DD HH:mm:ss',
+              <Text style={[styles.text]}>{`처리시간 : ${dayjs(
+                data.prcsDttm,
+              ).format('YYYY:MM:DD HH:mm:ss')}`}</Text>
+              <Text
+                style={[
+                  styles.text,
+                ]}>{`처리단계 : ${data.cargTrcnRelaBsopTpcd}`}</Text>
+              <Text style={[styles.text]}>{`위치 : ${he.decode(
+                data.snarKoreNm,
               )}`}</Text>
-              <Text>{`처리단계 : ${data.cargTrcnRelaBsopTpcd}`}</Text>
-              <Text>{`위치 : ${he.decode(data.snarKoreNm)}`}</Text>
             </View>
           </View>
         ))}
@@ -37,5 +42,11 @@ const Table = ({dataList}: {dataList: any[]}) => {
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    color: 'black',
+  },
+});
 
 export default Table;
