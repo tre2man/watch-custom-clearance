@@ -15,3 +15,9 @@
 
 - DETAIL_API_URL
 - LIST_API_URL
+
+## 동작화면
+<img src="./img1.png">
+<img src="./img2.png">
+<img src="./img3.png">
+<img src="./img4.png">
