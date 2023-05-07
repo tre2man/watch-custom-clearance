@@ -17,7 +17,11 @@
 - LIST_API_URL
 
 ## 동작화면
-<img src="./img1.png">
-<img src="./img2.png">
-<img src="./img3.png">
-<img src="./img4.png">
+<div style="display: flex">
+    <img style="margin: 10px; width: 400px" src="./img1.png">
+    <img style="margin: 10px; width: 400px" src="./img2.png">
+</div>
+<div style="display: flex">
+    <img style="margin: 10px; width: 400px" src="./img3.png">
+    <img style="margin: 10px; width: 400px" src="./img4.png">
+</div>
