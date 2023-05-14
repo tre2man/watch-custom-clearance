@@ -35,7 +35,7 @@ const OneItem = ({
         borderWidth: 0.3,
         borderColor: 'gray',
       }}>
-      <View>
+      <View key={key}>
         <Text style={{color: 'black'}}>{`반출일자 : ${oneData.acptDt}`}</Text>
         <Text style={{color: 'black'}}>{`현재상태 : ${oneData.csclForm}`}</Text>
         <Text style={{color: 'black'}}>{`B/L : ${oneData.hblNo}`}</Text>
