@@ -1,8 +1,8 @@
 {
   "name": "watchCustomClearance",
-  "displayName": "watchCustomClearance",
+  "displayName": "통관검색기",
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx",
-    "ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
+    "android_app_id": "ca-app-pub-3943350546003932~7189039277",
+    "ios_app_id": "ca-app-pub-3943350546003932~7189039277"
   }
 }
