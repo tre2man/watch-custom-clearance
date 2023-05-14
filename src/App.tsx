@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Main from './Main';
 import ItemDetail from './view/ItemDetail';
 import ItemSituations from './view/ItemSituation';
-
+import GoogleAd from './view/GoogleAd';
 const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
@@ -23,6 +23,7 @@ function App(): JSX.Element {
           initialParams={{data: []}}
         />
       </Stack.Navigator>
+      <GoogleAd />
     </NavigationContainer>
   );
 }

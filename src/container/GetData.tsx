@@ -8,7 +8,7 @@ import {DETAIL_API_URL} from '@env';
  * @returns [isLoading, data] isLoading: 로딩중인지, data: 가져온 데이터
  */
 const GetData = (pcode: string): [isLoading: boolean, data: any] => {
-  const [isLoading, setLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const GetData = (pcode: string): [isLoading: boolean, data: any] => {
       )
       .then(response => {
         setData(response.data);
-        setLoading(false);
+        setIsLoading(false);
       })
       .catch(error => {
         console.log(error);

@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import GetData from './container/GetData';
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
 import SearchBox from './view/SearchBox';
 import ItemList from './view/ItemList';
 
@@ -8,7 +8,12 @@ const Main = ({navigation}: {navigation: any}) => {
   const [searchText, setSearchText] = useState<string>('');
   const [isLoading, data] = GetData(searchText);
 
-  useEffect(() => {}, [searchText]);
+  if (isLoading)
+    return (
+      <View>
+        <Text>로딩중</Text>
+      </View>
+    );
 
   return (
     <View

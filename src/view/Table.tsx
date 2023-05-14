@@ -25,14 +25,14 @@ const Table = ({dataList}: {dataList: any[]}) => {
               borderColor: 'gray',
             }}>
             <View>
-              <Text style={[styles.text]}>{`처리시간 : ${dayjs(
+              <Text style={{color: 'black'}}>{`처리시간 : ${dayjs(
                 data.prcsDttm,
               ).format('YYYY:MM:DD HH:mm:ss')}`}</Text>
               <Text
-                style={[
-                  styles.text,
-                ]}>{`처리단계 : ${data.cargTrcnRelaBsopTpcd}`}</Text>
-              <Text style={[styles.text]}>{`위치 : ${he.decode(
+                style={{
+                  color: 'black',
+                }}>{`처리단계 : ${data.cargTrcnRelaBsopTpcd}`}</Text>
+              <Text style={{color: 'black'}}>{`위치 : ${he.decode(
                 data.snarKoreNm,
               )}`}</Text>
             </View>
@@ -42,11 +42,5 @@ const Table = ({dataList}: {dataList: any[]}) => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  text: {
-    color: 'black',
-  },
-});
 
 export default Table;
