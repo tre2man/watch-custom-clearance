@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {Text, View} from 'react-native';
-import Table from './Table';
+import Table from '../view/Table';
 
 const ItemSituations = ({route}: {route: any}) => {
   const data = route?.params?.data;
