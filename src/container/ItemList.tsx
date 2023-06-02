@@ -1,12 +1,3 @@
-import {useEffect} from 'react';
-import {
-  ActivityIndicator,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import ArrowLogo from '../Images/arrow.svg';
 import LoadingView from '../view/LoadingView';
 import ItemListView from '../view/ItemListVIew';
 

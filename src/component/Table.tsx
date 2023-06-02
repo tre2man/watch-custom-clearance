@@ -1,11 +1,12 @@
-import {useEffect} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import dayjs from 'dayjs';
 import he from 'he';
 
-const Table = ({dataList}: {dataList: any[]}) => {
-  useEffect(() => {}, [dataList]);
+interface Props {
+  dataList: any[];
+}
 
+const Table = ({dataList}: Props) => {
   return (
     <ScrollView>
       <View>
