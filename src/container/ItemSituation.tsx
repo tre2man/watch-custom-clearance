@@ -5,8 +5,6 @@ import Table from '../view/Table';
 const ItemSituations = ({route}: {route: any}) => {
   const data = route?.params?.data;
 
-  useEffect(() => {}, [data]);
-
   return (
     <View style={{margin: 10}}>
       <Table dataList={data} />
