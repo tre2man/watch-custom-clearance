@@ -1,15 +1,9 @@
-import {useEffect} from 'react';
-import {Text, View} from 'react-native';
-import Table from '../view/Table';
+import TableView from '../view/TableView';
 
 const ItemSituations = ({route}: {route: any}) => {
-  const data = route?.params?.data;
+  const data = route?.params?.data as any[];
 
-  return (
-    <View style={{margin: 10}}>
-      <Table dataList={data} />
-    </View>
-  );
+  return <TableView data={data} />;
 };
 
 export default ItemSituations;
