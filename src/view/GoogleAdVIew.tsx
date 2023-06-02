@@ -6,7 +6,7 @@ import {AD_UNIT_ID} from '@env';
 
 const adUnitId = AD_UNIT_ID;
 
-const GoogleAd = () => {
+const GoogleAdView = () => {
   return (
     <BannerAd
       unitId={adUnitId}
@@ -18,4 +18,4 @@ const GoogleAd = () => {
   );
 };
 
-export default GoogleAd;
+export default GoogleAdView;
