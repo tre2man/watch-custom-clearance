@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import GetList from '../container/GetList';
+import GetList from '../apis/GetList';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import he from 'he';
 import ItemSituations from './ItemSituation';

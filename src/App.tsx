@@ -2,9 +2,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Main from './Main';
-import ItemDetail from './view/ItemDetail';
-import ItemSituations from './view/ItemSituation';
-import GoogleAd from './view/GoogleAd';
+import ItemDetail from './container/ItemDetail';
+import ItemSituations from './container/ItemSituation';
+import GoogleAd from './container/GoogleAd';
 const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
