@@ -5,7 +5,6 @@ import {Main} from './Main';
 import ItemDetail from './container/ItemDetail';
 import ItemSituations from './container/ItemSituation';
 import GoogleAdView from './view/GoogleAdVIew';
-import {Test} from './view/Test';
 
 const Stack = createNativeStackNavigator();
 

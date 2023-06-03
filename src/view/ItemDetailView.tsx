@@ -46,9 +46,11 @@ const ItemDetailView = ({
               backgroundColor: 'gray',
               marginBottom: 10,
             }}
-            onPress={() => {
-              navigation.navigate('상품상태', {data: printResultListL});
-            }}>
+            onPress={() =>
+              navigation.navigate('상품상태', {
+                data: printResultListL,
+              })
+            }>
             <Text
               style={{
                 color: 'white',

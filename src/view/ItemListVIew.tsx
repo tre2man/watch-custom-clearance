@@ -17,7 +17,9 @@ const OneItem = ({oneData, navigation, key}: OneItemProps) => {
     <View key={key} id={`${key}`}>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('상품정보', {cargMtNo: oneData.cargMtNo});
+          navigation.navigate('상품정보', {
+            cargMtNo: oneData.cargMtNo,
+          });
         }}
         style={{
           display: 'flex',

@@ -1,17 +1,11 @@
 export const getPostOfficeUrl = (hblNo: string) => {
-  return (
-    'https://service.epost.go.kr/trace.RetrieveDomRigiTraceList.comm?sid1=' +
-    String(hblNo)
-  );
+  return `https://service.epost.go.kr/trace.RetrieveDomRigiTraceList.comm?sid1=${hblNo}`;
 };
 
 export const getCjUrl = (hblNo: string) => {
-  return 'http://nplus.doortodoor.co.kr/web/detail.jsp?slipno=' + String(hblNo);
+  return `http://nplus.doortodoor.co.kr/web/detail.jsp?slipno=${hblNo}`;
 };
 
 export const gethanjinUrl = (hblNo: string) => {
-  return (
-    'http://www.hanjin.co.kr/Delivery_html/inquiry/result_waybill.jsp?wbl_num=' +
-    String(hblNo)
-  );
+  return `https://www.hanjin.co.kr/kor/CMS/DeliveryMgr/WaybillResult.do?mCode=MN038&wblnum=${hblNo}&schLang=KR`;
 };

@@ -36,7 +36,7 @@ const SearchBoxView = ({onSearch}: Props) => {
       </View>
       <View style={{flex: 1}}>
         <Pressable onPress={() => onSearch(input)}>
-          <SearchLogo width={20} height={20}></SearchLogo>
+          <SearchLogo width={20} height={20} />
         </Pressable>
       </View>
     </View>
