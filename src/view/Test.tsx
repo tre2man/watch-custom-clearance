@@ -1,16 +1,32 @@
+import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Search from './container/Search';
-import Setting from './container/Setting';
+import {Text, View} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
-export const Main = () => {
+const Test2 = () => {
   return (
-    <Tab.Navigator initialRouteName="Search">
+    <View>
+      <Text>Test2</Text>
+    </View>
+  );
+};
+
+const Test3 = () => {
+  return (
+    <View>
+      <Text>Test3</Text>
+    </View>
+  );
+};
+
+export const Test = () => {
+  return (
+    <Tab.Navigator initialRouteName="Home">
       <Tab.Screen
-        name="Search"
-        component={Search}
+        name="Home"
+        component={Test2}
         options={{
           title: '홈',
           headerShown: false,
@@ -21,7 +37,7 @@ export const Main = () => {
       />
       <Tab.Screen
         name="Setting"
-        component={Setting}
+        component={Test3}
         options={{
           title: '설정',
           headerShown: false,

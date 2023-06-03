@@ -1,7 +1,5 @@
 import {createContext} from 'react';
 
-type ColorMode = 'light' | 'dark';
+export type ColorMode = 'light' | 'dark';
 
-const ColorMode = createContext<ColorMode>('light');
-
-export default ColorMode;
+export const ColorModeContext = createContext<ColorMode>('light');
