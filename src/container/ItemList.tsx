@@ -8,6 +8,7 @@ interface Props {
 }
 
 /**
+ * 운송장 번호 검색 후 출력되는 결과물
  * data는 입력받은 전체데이터
  * @param param0
  * @returns

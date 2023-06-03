@@ -1,13 +1,20 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Linking, Pressable, StyleSheet, Text, View} from 'react-native';
 import he from 'he';
+import {getCjUrl, getPostOfficeUrl, gethanjinUrl} from '../utils/GetPostUrl';
 
 interface Props {
   navigation: any;
   itemInfo: any;
   printResultListL: any;
+  hblNo: string;
 }
 
-const ItemDetailView = ({navigation, itemInfo, printResultListL}: Props) => {
+const ItemDetailView = ({
+  navigation,
+  itemInfo,
+  printResultListL,
+  hblNo,
+}: Props) => {
   return (
     <View style={{margin: 10}}>
       <View
@@ -37,6 +44,7 @@ const ItemDetailView = ({navigation, itemInfo, printResultListL}: Props) => {
               elevation: 2,
               height: 40,
               backgroundColor: 'gray',
+              marginBottom: 10,
             }}
             onPress={() => {
               navigation.navigate('상품상태', {data: printResultListL});
@@ -49,6 +57,93 @@ const ItemDetailView = ({navigation, itemInfo, printResultListL}: Props) => {
               자세한 정보 확인
             </Text>
           </Pressable>
+          {hblNo.length <= 0 && <></>}
+          {hblNo.length === 13 && (
+            // 우체국 택배 조회
+            <Pressable
+              style={{
+                borderRadius: 5,
+                padding: 10,
+                elevation: 2,
+                height: 40,
+                backgroundColor: 'gray',
+                marginBottom: 10,
+              }}
+              onPress={async () => {
+                const nowUrl = getPostOfficeUrl(hblNo);
+                const isSupportUrl = nowUrl;
+                if (isSupportUrl) {
+                  await Linking.openURL(nowUrl);
+                } else {
+                  console.error('지원하지 않는 URL입니다.');
+                }
+              }}>
+              <Text
+                style={{
+                  color: 'white',
+                  textAlign: 'center',
+                }}>
+                우체국 홈페이지 조회
+              </Text>
+            </Pressable>
+          )}
+          {(hblNo.length === 12 || hblNo.length === 10) && (
+            // 한진 또는 CJ택배 조회
+            <>
+              <Pressable
+                style={{
+                  borderRadius: 5,
+                  padding: 10,
+                  elevation: 2,
+                  height: 40,
+                  backgroundColor: 'gray',
+                  marginBottom: 10,
+                }}
+                onPress={async () => {
+                  const nowUrl = gethanjinUrl(hblNo);
+                  const isSupportUrl = nowUrl;
+                  if (isSupportUrl) {
+                    await Linking.openURL(nowUrl);
+                  } else {
+                    console.error('지원하지 않는 URL입니다.');
+                  }
+                }}>
+                <Text
+                  style={{
+                    color: 'white',
+                    textAlign: 'center',
+                  }}>
+                  한진택배 홈페이지 조회
+                </Text>
+              </Pressable>
+              <Pressable
+                style={{
+                  borderRadius: 5,
+                  padding: 10,
+                  elevation: 2,
+                  height: 40,
+                  backgroundColor: 'gray',
+                  marginBottom: 10,
+                }}
+                onPress={async () => {
+                  const nowUrl = getCjUrl(hblNo);
+                  const isSupportUrl = nowUrl;
+                  if (isSupportUrl) {
+                    await Linking.openURL(nowUrl);
+                  } else {
+                    console.error('지원하지 않는 URL입니다.');
+                  }
+                }}>
+                <Text
+                  style={{
+                    color: 'white',
+                    textAlign: 'center',
+                  }}>
+                  CJ택배 홈페이지 조회
+                </Text>
+              </Pressable>
+            </>
+          )}
         </View>
       </View>
     </View>

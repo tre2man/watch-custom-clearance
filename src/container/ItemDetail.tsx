@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import GetList from '../apis/GetList';
 import ItemDetailView from '../view/ItemDetailView';
 import LoadingView from '../view/LoadingView';
@@ -16,6 +17,7 @@ const ItemDetail = ({route, navigation}: {route: any; navigation: any}) => {
       navigation={navigation}
       itemInfo={itemInfo}
       printResultListL={data?.printResultListL}
+      hblNo={data?.resultListM?.hblNo || ''}
     />
   );
 };
