@@ -1,7 +1,17 @@
-import {Linking, Pressable, StyleSheet, Text, View} from 'react-native';
+import {
+  Linking,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import he from 'he';
 import {getCjUrl, getPostOfficeUrl, gethanjinUrl} from '../utils/GetPostUrl';
 import MainText from '../component/MainText';
+import DetailPressable from '../component/DetailPressable';
+import {useRecoilState} from 'recoil';
+import {ThemeColor, ThemeState} from '../utils/ThemeState';
 
 interface Props {
   navigation: any;
@@ -16,8 +26,27 @@ const ItemDetailView = ({
   printResultListL,
   hblNo,
 }: Props) => {
+  const [theme] = useRecoilState<ThemeColor>(ThemeState);
+
+  const getOnPressUrl = (urlFunc: (input: string) => string, hblNo: string) => {
+    return async () => {
+      const nowUrl = urlFunc(hblNo);
+      const isSupportUrl = nowUrl;
+      if (isSupportUrl) {
+        await Linking.openURL(nowUrl);
+      } else {
+        console.error('지원하지 않는 URL입니다.');
+      }
+    };
+  };
+
   return (
-    <View style={{margin: 10}}>
+    <SafeAreaView
+      style={{
+        padding: 10,
+        height: '100%',
+        backgroundColor: theme === 'light' ? 'white' : '#121212',
+      }}>
       <View
         style={{
           padding: 5,
@@ -30,94 +59,35 @@ const ItemDetailView = ({
           <MainText>{`특송업체 : ${he.decode(itemInfo.entsKoreNm)}`}</MainText>
         </View>
         <View style={{padding: 20}}>
-          <Pressable
-            style={{
-              borderRadius: 5,
-              padding: 10,
-              elevation: 2,
-              height: 40,
-              backgroundColor: 'gray',
-              marginBottom: 10,
-            }}
+          <DetailPressable
             onPress={() =>
               navigation.navigate('상품상태', {
                 data: printResultListL,
               })
             }>
             <MainText>자세한 정보 확인</MainText>
-          </Pressable>
+          </DetailPressable>
           {hblNo.length <= 0 && <></>}
           {hblNo.length === 13 && (
             // 우체국 택배 조회
-            <Pressable
-              style={{
-                borderRadius: 5,
-                padding: 10,
-                elevation: 2,
-                height: 40,
-                backgroundColor: 'gray',
-                marginBottom: 10,
-              }}
-              onPress={async () => {
-                const nowUrl = getPostOfficeUrl(hblNo);
-                const isSupportUrl = nowUrl;
-                if (isSupportUrl) {
-                  await Linking.openURL(nowUrl);
-                } else {
-                  console.error('지원하지 않는 URL입니다.');
-                }
-              }}>
+            <DetailPressable onPress={getOnPressUrl(getPostOfficeUrl, hblNo)}>
               <MainText>우체국 홈페이지 조회</MainText>
-            </Pressable>
+            </DetailPressable>
           )}
           {(hblNo.length === 12 || hblNo.length === 10) && (
             // 한진 또는 CJ택배 조회
             <>
-              <Pressable
-                style={{
-                  borderRadius: 5,
-                  padding: 10,
-                  elevation: 2,
-                  height: 40,
-                  backgroundColor: 'gray',
-                  marginBottom: 10,
-                }}
-                onPress={async () => {
-                  const nowUrl = gethanjinUrl(hblNo);
-                  const isSupportUrl = nowUrl;
-                  if (isSupportUrl) {
-                    await Linking.openURL(nowUrl);
-                  } else {
-                    console.error('지원하지 않는 URL입니다.');
-                  }
-                }}>
+              <DetailPressable onPress={getOnPressUrl(gethanjinUrl, hblNo)}>
                 <MainText>한진택배 홈페이지 조회</MainText>
-              </Pressable>
-              <Pressable
-                style={{
-                  borderRadius: 5,
-                  padding: 10,
-                  elevation: 2,
-                  height: 40,
-                  backgroundColor: 'gray',
-                  marginBottom: 10,
-                }}
-                onPress={async () => {
-                  const nowUrl = getCjUrl(hblNo);
-                  const isSupportUrl = nowUrl;
-                  if (isSupportUrl) {
-                    await Linking.openURL(nowUrl);
-                  } else {
-                    console.error('지원하지 않는 URL입니다.');
-                  }
-                }}>
+              </DetailPressable>
+              <DetailPressable onPress={getOnPressUrl(getCjUrl, hblNo)}>
                 <MainText>CJ택배 홈페이지 조회</MainText>
-              </Pressable>
+              </DetailPressable>
             </>
           )}
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

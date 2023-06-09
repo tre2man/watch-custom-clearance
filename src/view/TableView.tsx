@@ -6,11 +6,7 @@ interface Props {
 }
 
 const TableView = ({data}: Props) => {
-  return (
-    <View style={{margin: 10}}>
-      <Table dataList={data} />
-    </View>
-  );
+  return <Table dataList={data} />;
 };
 
 export default TableView;

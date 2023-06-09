@@ -9,7 +9,7 @@ interface Props {
 }
 
 const MainText = ({children, style}: Props) => {
-  const [theme, _] = useRecoilState<ThemeColor>(ThemeState);
+  const [theme] = useRecoilState<ThemeColor>(ThemeState);
 
   return (
     <Text style={[{color: theme === 'light' ? 'black' : 'white'}, style]}>

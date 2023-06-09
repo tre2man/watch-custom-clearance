@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import GetData from '../apis/GetData';
 import MainText from '../component/MainText';
 import SearchView from '../view/SearchView';
@@ -10,9 +10,9 @@ const Search = ({navigation}: {navigation: any}) => {
 
   if (isLoading)
     return (
-      <View>
+      <SafeAreaView>
         <MainText>로딩중</MainText>
-      </View>
+      </SafeAreaView>
     );
 
   return (

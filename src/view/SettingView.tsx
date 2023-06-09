@@ -1,12 +1,24 @@
-import {Button, Modal, Pressable, Text, View} from 'react-native';
+import {
+  Button,
+  Modal,
+  Platform,
+  Pressable,
+  SafeAreaView,
+  StatusBar,
+  Text,
+  View,
+} from 'react-native';
 import {Dispatch, SetStateAction, useState} from 'react';
 import {RadioButton} from 'react-native-paper';
 import MainText from '../component/MainText';
-import {ThemeColor} from '../utils/ThemeState';
+import {ThemeColor, ThemeState} from '../utils/ThemeState';
+import {useRecoilState} from 'recoil';
+import StatusBarView from './StatusBarView';
 
 interface Props {
   colorMode: ThemeColor;
   setColor: Dispatch<SetStateAction<ThemeColor>>;
+  modalVisibleHandler: () => void;
 }
 
 const textList: {title: string; value: ThemeColor}[] = [
@@ -20,10 +32,21 @@ const textList: {title: string; value: ThemeColor}[] = [
   },
 ];
 
-const SettingView = ({colorMode, setColor}: Props) => {
+const ThemeModeSettingView = ({
+  colorMode,
+  setColor,
+  modalVisibleHandler,
+}: Props) => {
+  const [theme] = useRecoilState<ThemeColor>(ThemeState);
+
   return (
-    <View style={{margin: 10}}>
-      <View>
+    <SafeAreaView>
+      <StatusBarView isReverse/>
+      <View
+        style={{
+          height: '100%',
+          backgroundColor: theme === 'light' ? 'white' : '#121212',
+        }}>
         {textList.map(({title, value}, index) => {
           return (
             <View
@@ -39,15 +62,19 @@ const SettingView = ({colorMode, setColor}: Props) => {
               <RadioButton
                 value="first"
                 status={colorMode === value ? 'checked' : 'unchecked'}
-                onPress={() => setColor(value)}
-                color="black"
+                onPress={() => {
+                  setColor(value);
+                  modalVisibleHandler;
+                }}
+                color={theme === 'light' ? 'black' : 'white'}
               />
             </View>
           );
         })}
+        <Button onPress={modalVisibleHandler} title="창 닫기" />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
-export default SettingView;
+export default ThemeModeSettingView;

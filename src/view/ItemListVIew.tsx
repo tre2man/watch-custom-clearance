@@ -1,6 +1,8 @@
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import ArrowLogo from '../Images/arrow.svg';
 import MainText from '../component/MainText';
+import {useRecoilState} from 'recoil';
+import {ThemeColor, ThemeState} from '../utils/ThemeState';
 
 interface OneItemProps {
   oneData: any;
@@ -14,6 +16,8 @@ interface OneItemProps {
  * @returns 테이블의 한개의 아이템 반환
  */
 const OneItem = ({oneData, navigation, key}: OneItemProps) => {
+  const [theme] = useRecoilState<ThemeColor>(ThemeState);
+
   return (
     <View key={key} id={`${key}`}>
       <TouchableOpacity
@@ -28,7 +32,7 @@ const OneItem = ({oneData, navigation, key}: OneItemProps) => {
           flexDirection: 'row',
           marginTop: 5,
           marginBottom: 5,
-          backgroundColor: 'white',
+          backgroundColor: theme === 'light' ? 'white' : '#121212',
           borderRadius: 8,
           padding: 5,
           borderWidth: 0.3,
@@ -43,7 +47,11 @@ const OneItem = ({oneData, navigation, key}: OneItemProps) => {
           style={{
             justifyContent: 'center',
           }}>
-          <ArrowLogo width={20} height={20}></ArrowLogo>
+          <ArrowLogo
+            width={20}
+            height={20}
+            fill={theme === 'light' ? 'black' : 'white'}
+          />
         </View>
       </TouchableOpacity>
     </View>

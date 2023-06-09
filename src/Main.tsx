@@ -2,6 +2,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Search from './container/Search';
 import Setting from './container/Setting';
+import {useRecoilState} from 'recoil';
+import {ThemeColor, ThemeState} from './utils/ThemeState';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,6 +13,8 @@ const Tab = createBottomTabNavigator();
  * @returns
  */
 export const Main = () => {
+  const [theme] = useRecoilState<ThemeColor>(ThemeState);
+
   return (
     <Tab.Navigator initialRouteName="Search">
       <Tab.Screen
@@ -22,6 +26,10 @@ export const Main = () => {
           tabBarIcon: ({color, size}) => (
             <Icon name="home" color={color} size={size} />
           ),
+          tabBarActiveTintColor: theme === 'light' ? 'black' : 'white',
+          tabBarActiveBackgroundColor: theme === 'light' ? 'white' : '#121212',
+          tabBarInactiveBackgroundColor:
+            theme === 'light' ? 'white' : '#121212',
         }}
       />
       <Tab.Screen
@@ -33,6 +41,10 @@ export const Main = () => {
           tabBarIcon: ({color, size}) => (
             <Icon name="settings" color={color} size={size} />
           ),
+          tabBarActiveTintColor: theme === 'light' ? 'black' : 'white',
+          tabBarActiveBackgroundColor: theme === 'light' ? 'white' : '#121212',
+          tabBarInactiveBackgroundColor:
+            theme === 'light' ? 'white' : '#121212',
         }}
       />
     </Tab.Navigator>

@@ -6,7 +6,8 @@ import ItemDetail from './container/ItemDetail';
 import ItemSituations from './container/ItemSituation';
 import GoogleAdView from './view/GoogleAdVIew';
 import {useContext} from 'react';
-import {RecoilRoot} from 'recoil';
+import {RecoilRoot, useRecoilState} from 'recoil';
+import {ThemeColor, ThemeState} from './utils/ThemeState';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +21,11 @@ function App(): JSX.Element {
     <RecoilRoot>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="통관부호 검색" component={Main} />
+          <Stack.Screen
+            name="통관부호 검색"
+            component={Main}
+            options={{headerShown: false}}
+          />
           <Stack.Screen
             name="상품정보"
             component={ItemDetail}
