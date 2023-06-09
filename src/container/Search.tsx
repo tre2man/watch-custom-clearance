@@ -1,8 +1,6 @@
 import {useState} from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import GetData from '../apis/GetData';
-import ItemList from './ItemList';
-import SearchBox from './SearchBox';
 import MainText from '../component/MainText';
 import SearchView from '../view/SearchView';
 

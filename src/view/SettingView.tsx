@@ -2,7 +2,7 @@ import {Button, Modal, Pressable, Text, View} from 'react-native';
 import {Dispatch, SetStateAction, useState} from 'react';
 import {RadioButton} from 'react-native-paper';
 import MainText from '../component/MainText';
-import {ThemeColor} from '../utils/ThemeColorProvider';
+import {ThemeColor} from '../utils/ThemeState';
 
 interface Props {
   colorMode: ThemeColor;

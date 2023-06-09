@@ -1,5 +1,7 @@
 import {StyleProp, Text, TextStyle, View} from 'react-native';
-import {useTheme} from '../utils/ThemeColorProvider';
+import {useEffect} from 'react';
+import {selector, useRecoilState} from 'recoil';
+import {ThemeColor, ThemeState} from '../utils/ThemeState';
 
 interface Props {
   children: string;
@@ -7,7 +9,7 @@ interface Props {
 }
 
 const MainText = ({children, style}: Props) => {
-  const {theme} = useTheme();
+  const [theme, _] = useRecoilState<ThemeColor>(ThemeState);
 
   return (
     <Text style={[{color: theme === 'light' ? 'black' : 'white'}, style]}>

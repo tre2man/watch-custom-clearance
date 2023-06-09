@@ -5,15 +5,8 @@ import {Main} from './Main';
 import ItemDetail from './container/ItemDetail';
 import ItemSituations from './container/ItemSituation';
 import GoogleAdView from './view/GoogleAdVIew';
-import {
-  ThemeColor,
-  ThemeColorProvider,
-  ThemeContext,
-  useTheme,
-  useThemeHook,
-} from './utils/ThemeColorProvider';
-import {useEffect, useState} from 'react';
-import Setting from './container/Setting';
+import {useContext} from 'react';
+import {RecoilRoot} from 'recoil';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,11 +16,8 @@ const Stack = createNativeStackNavigator();
  * @returns
  */
 function App(): JSX.Element {
-  // const {theme} = useThemeHook();
-  const {theme} = useTheme();
-
   return (
-    <ThemeColorProvider theme={theme}>
+    <RecoilRoot>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="통관부호 검색" component={Main} />
@@ -44,7 +34,7 @@ function App(): JSX.Element {
         </Stack.Navigator>
         <GoogleAdView />
       </NavigationContainer>
-    </ThemeColorProvider>
+    </RecoilRoot>
   );
 }
 

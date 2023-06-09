@@ -1,20 +1,10 @@
 import {View} from 'react-native';
-import {RadioButton} from 'react-native-paper';
 import SettingView from '../view/SettingView';
-import {
-  ThemeColor,
-  ThemeContext,
-  useTheme,
-  useThemeHook,
-} from '../utils/ThemeColorProvider';
-import {useEffect} from 'react';
+import {ThemeColor, ThemeState} from '../utils/ThemeState';
+import {useRecoilState} from 'recoil';
 
 const Setting = () => {
-  const {theme, setTheme} = useThemeHook();
-
-  useEffect(() => {
-    console.log('theme', theme);
-  }, [theme]);
+  const [theme, setTheme] = useRecoilState<ThemeColor>(ThemeState);
 
   return (
     <View
@@ -25,9 +15,7 @@ const Setting = () => {
         height: '100%',
         backgroundColor: theme === 'light' ? 'white' : '#121212',
       }}>
-      <ThemeContext.Provider value={theme}>
-        <SettingView colorMode={theme} setColor={setTheme} />
-      </ThemeContext.Provider>
+      <SettingView colorMode={theme} setColor={setTheme} />
     </View>
   );
 };
