@@ -1,7 +1,7 @@
-import {Text} from 'react-native';
+import MainText from '../component/MainText';
 
 const LoadingView = () => {
-  return <Text>Loading...</Text>;
+  return <MainText>Loading...</MainText>;
 };
 
 export default LoadingView;

@@ -5,6 +5,11 @@ import Setting from './container/Setting';
 
 const Tab = createBottomTabNavigator();
 
+/**
+ * 하단 탭에 대한 상태 (홈(검색 로직들), 설정)
+ * App.tsx 다음으로 최상위 컴포넌트
+ * @returns
+ */
 export const Main = () => {
   return (
     <Tab.Navigator initialRouteName="Search">

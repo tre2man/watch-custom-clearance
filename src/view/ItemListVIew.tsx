@@ -1,5 +1,6 @@
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import ArrowLogo from '../Images/arrow.svg';
+import MainText from '../component/MainText';
 
 interface OneItemProps {
   oneData: any;
@@ -34,10 +35,9 @@ const OneItem = ({oneData, navigation, key}: OneItemProps) => {
           borderColor: 'gray',
         }}>
         <View key={key} id={`${key}`}>
-          <Text style={{color: 'black'}}>{`반출일자 : ${oneData.acptDt}`}</Text>
-          <Text
-            style={{color: 'black'}}>{`현재상태 : ${oneData.csclForm}`}</Text>
-          <Text style={{color: 'black'}}>{`B/L : ${oneData.hblNo}`}</Text>
+          <MainText>{`반출일자 : ${oneData.acptDt}`}</MainText>
+          <MainText>{`현재상태 : ${oneData.csclForm}`}</MainText>
+          <MainText>{`B/L : ${oneData.hblNo}`}</MainText>
         </View>
         <View
           style={{

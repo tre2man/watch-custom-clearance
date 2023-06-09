@@ -1,20 +1,33 @@
-import {useState} from 'react';
+import {View} from 'react-native';
+import {RadioButton} from 'react-native-paper';
 import SettingView from '../view/SettingView';
-import {ColorMode} from '../context/DarkMode';
-import {Text, View} from 'react-native';
+import {
+  ThemeColor,
+  ThemeContext,
+  useTheme,
+  useThemeHook,
+} from '../utils/ThemeColorProvider';
+import {useEffect} from 'react';
 
 const Setting = () => {
-  const [colorMode, setColorMode] = useState<ColorMode>('light');
+  const {theme, setTheme} = useThemeHook();
 
-  // return <SettingView colorMode={colorMode} setColorMode={setColorMode} />;
+  useEffect(() => {
+    console.log('theme', theme);
+  }, [theme]);
+
   return (
     <View
       style={{
-        margin: 10,
+        padding: '10%',
         display: 'flex',
         alignItems: 'center',
+        height: '100%',
+        backgroundColor: theme === 'light' ? 'white' : '#121212',
       }}>
-      <Text>다크모드는 추후 출시예정입니다.</Text>
+      <ThemeContext.Provider value={theme}>
+        <SettingView colorMode={theme} setColor={setTheme} />
+      </ThemeContext.Provider>
     </View>
   );
 };

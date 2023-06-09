@@ -1,18 +1,15 @@
 import {Button, Modal, Pressable, Text, View} from 'react-native';
-import {ColorMode} from '../context/DarkMode';
 import {Dispatch, SetStateAction, useState} from 'react';
 import {RadioButton} from 'react-native-paper';
+import MainText from '../component/MainText';
+import {ThemeColor} from '../utils/ThemeColorProvider';
 
 interface Props {
-  colorMode: ColorMode;
-  setColorMode: Dispatch<SetStateAction<ColorMode>>;
+  colorMode: ThemeColor;
+  setColor: Dispatch<SetStateAction<ThemeColor>>;
 }
 
-const textList: {title: string; value: ColorMode}[] = [
-  {
-    title: '시스템 기본값',
-    value: 'default',
-  },
+const textList: {title: string; value: ThemeColor}[] = [
   {
     title: '라이트',
     value: 'light',
@@ -23,7 +20,7 @@ const textList: {title: string; value: ColorMode}[] = [
   },
 ];
 
-const SettingView = ({colorMode, setColorMode}: Props) => {
+const SettingView = ({colorMode, setColor}: Props) => {
   return (
     <View style={{margin: 10}}>
       <View>
@@ -38,11 +35,11 @@ const SettingView = ({colorMode, setColorMode}: Props) => {
                 alignItems: 'center',
                 justifyContent: 'space-between',
               }}>
-              <Text>{title}</Text>
+              <MainText>{title}</MainText>
               <RadioButton
                 value="first"
                 status={colorMode === value ? 'checked' : 'unchecked'}
-                onPress={() => setColorMode(value)}
+                onPress={() => setColor(value)}
                 color="black"
               />
             </View>

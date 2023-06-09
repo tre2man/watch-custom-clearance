@@ -3,6 +3,8 @@ import {Text, View} from 'react-native';
 import GetData from '../apis/GetData';
 import ItemList from './ItemList';
 import SearchBox from './SearchBox';
+import MainText from '../component/MainText';
+import SearchView from '../view/SearchView';
 
 const Search = ({navigation}: {navigation: any}) => {
   const [searchText, setSearchText] = useState<string>('');
@@ -11,26 +13,17 @@ const Search = ({navigation}: {navigation: any}) => {
   if (isLoading)
     return (
       <View>
-        <Text>로딩중</Text>
+        <MainText>로딩중</MainText>
       </View>
     );
 
   return (
-    <View>
-      <View
-        style={{
-          margin: 10,
-        }}>
-        <SearchBox onSearch={setSearchText}></SearchBox>
-        <View
-          style={{
-            marginTop: 10,
-            height: '80%',
-          }}>
-          <ItemList isLoading={isLoading} data={data} navigation={navigation} />
-        </View>
-      </View>
-    </View>
+    <SearchView
+      navigation={navigation}
+      setSearchText={setSearchText}
+      isLoading={isLoading}
+      data={data}
+    />
   );
 };
 

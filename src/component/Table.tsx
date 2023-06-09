@@ -1,6 +1,7 @@
 import {ScrollView, Text, View} from 'react-native';
 import dayjs from 'dayjs';
 import he from 'he';
+import MainText from './MainText';
 
 interface Props {
   dataList: any[];
@@ -26,16 +27,11 @@ const Table = ({dataList}: Props) => {
               borderColor: 'gray',
             }}>
             <View>
-              <Text style={{color: 'black'}}>{`처리시간 : ${dayjs(
-                data.prcsDttm,
-              ).format('YYYY:MM:DD HH:mm:ss')}`}</Text>
-              <Text
-                style={{
-                  color: 'black',
-                }}>{`처리단계 : ${data.cargTrcnRelaBsopTpcd}`}</Text>
-              <Text style={{color: 'black'}}>{`위치 : ${he.decode(
-                data.snarKoreNm,
-              )}`}</Text>
+              <MainText>{`처리시간 : ${dayjs(data.prcsDttm).format(
+                'YYYY:MM:DD HH:mm:ss',
+              )}`}</MainText>
+              <MainText>{`처리단계 : ${data.cargTrcnRelaBsopTpcd}`}</MainText>
+              <MainText>{`위치 : ${he.decode(data.snarKoreNm)}`}</MainText>
             </View>
           </View>
         ))}
