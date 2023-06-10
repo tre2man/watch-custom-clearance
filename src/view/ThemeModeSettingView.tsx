@@ -8,7 +8,7 @@ import {MainText} from '../component';
 
 interface Props {
   colorMode: ThemeColor;
-  setColor: Dispatch<SetStateAction<ThemeColor>>;
+  setColor: (value: ThemeColor) => void;
   modalVisibleHandler: () => void;
 }
 

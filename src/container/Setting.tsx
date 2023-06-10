@@ -1,9 +1,10 @@
 import {Modal, View} from 'react-native';
-import {ThemeColor, ThemeState} from '../utils/ThemeState';
+import {STORAGE_KEY, ThemeColor, ThemeState} from '../utils/ThemeState';
 import {useRecoilState} from 'recoil';
 import {useState} from 'react';
 import {DetailPressable, MainText} from '../component';
 import ThemeModeSettingView from '../view/ThemeModeSettingView';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 /**
  * 다크모드, 라이트모드 선택
@@ -15,6 +16,12 @@ const Setting = () => {
 
   const modalVisibleHandler = () => {
     setModalVisible(!modalVisible);
+  };
+
+  const setNewTheme = async (value: ThemeColor) => {
+    AsyncStorage.setItem(STORAGE_KEY, value).then(() => {
+      setTheme(value);
+    });
   };
 
   return (
@@ -31,7 +38,7 @@ const Setting = () => {
       <Modal visible={modalVisible} animationType="slide">
         <ThemeModeSettingView
           colorMode={theme}
-          setColor={setTheme}
+          setColor={setNewTheme}
           modalVisibleHandler={modalVisibleHandler}
         />
       </Modal>
