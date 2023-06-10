@@ -1,4 +1,4 @@
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import dayjs from 'dayjs';
 import he from 'he';
 import MainText from './MainText';

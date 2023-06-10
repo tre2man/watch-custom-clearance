@@ -1,8 +1,5 @@
-import {useEffect} from 'react';
 import GetList from '../apis/GetList';
-import ItemDetailView from '../view/ItemDetailView';
-import LoadingView from '../view/LoadingView';
-import {BackHandler} from 'react-native';
+import {ItemDetailView, LoadingView} from '../view';
 
 const ItemDetail = ({route, navigation}: {route: any; navigation: any}) => {
   const [isLoading, data] = GetList(route?.params?.cargMtNo);

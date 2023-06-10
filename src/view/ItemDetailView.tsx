@@ -1,17 +1,9 @@
-import {
-  Linking,
-  Pressable,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Linking, SafeAreaView, View} from 'react-native';
 import he from 'he';
 import {getCjUrl, getPostOfficeUrl, gethanjinUrl} from '../utils/GetPostUrl';
-import MainText from '../component/MainText';
-import DetailPressable from '../component/DetailPressable';
 import {useRecoilState} from 'recoil';
 import {ThemeColor, ThemeState} from '../utils/ThemeState';
+import {DetailPressable, MainText} from '../component';
 
 interface Props {
   navigation: any;

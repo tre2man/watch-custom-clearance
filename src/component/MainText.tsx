@@ -1,6 +1,5 @@
-import {StyleProp, Text, TextStyle, View} from 'react-native';
-import {useEffect} from 'react';
-import {selector, useRecoilState} from 'recoil';
+import {StyleProp, Text, TextStyle} from 'react-native';
+import {useRecoilState} from 'recoil';
 import {ThemeColor, ThemeState} from '../utils/ThemeState';
 
 interface Props {

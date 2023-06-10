@@ -1,19 +1,10 @@
-import {
-  Button,
-  Modal,
-  Platform,
-  Pressable,
-  SafeAreaView,
-  StatusBar,
-  Text,
-  View,
-} from 'react-native';
-import {Dispatch, SetStateAction, useState} from 'react';
+import {Button, SafeAreaView, View} from 'react-native';
+import {Dispatch, SetStateAction} from 'react';
 import {RadioButton} from 'react-native-paper';
-import MainText from '../component/MainText';
 import {ThemeColor, ThemeState} from '../utils/ThemeState';
 import {useRecoilState} from 'recoil';
 import StatusBarView from './StatusBarView';
+import {MainText} from '../component';
 
 interface Props {
   colorMode: ThemeColor;
@@ -41,7 +32,7 @@ const ThemeModeSettingView = ({
 
   return (
     <SafeAreaView>
-      <StatusBarView isReverse/>
+      <StatusBarView />
       <View
         style={{
           height: '100%',

@@ -1,8 +1,8 @@
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import ArrowLogo from '../Images/arrow.svg';
-import MainText from '../component/MainText';
 import {useRecoilState} from 'recoil';
 import {ThemeColor, ThemeState} from '../utils/ThemeState';
+import {MainText} from '../component';
 
 interface OneItemProps {
   oneData: any;

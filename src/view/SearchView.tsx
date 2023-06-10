@@ -1,10 +1,9 @@
 import {SafeAreaView, StatusBar, View} from 'react-native';
-import SearchBox from '../container/SearchBox';
-import ItemList from '../container/ItemList';
 import {Dispatch} from 'react';
 import {ThemeColor, ThemeState} from '../utils/ThemeState';
 import {useRecoilState} from 'recoil';
 import StatusBarView from './StatusBarView';
+import {ItemList, SearchBox} from '../container';
 
 interface Props {
   navigation: any;

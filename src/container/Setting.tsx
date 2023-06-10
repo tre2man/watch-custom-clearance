@@ -1,10 +1,9 @@
 import {Modal, Text, View} from 'react-native';
 import {ThemeColor, ThemeState} from '../utils/ThemeState';
 import {useRecoilState} from 'recoil';
-import ThemeModeSettingView from '../view/SettingView';
-import MainText from '../component/MainText';
-import DetailPressable from '../component/DetailPressable';
 import {useState} from 'react';
+import {DetailPressable, MainText} from '../component';
+import ThemeModeSettingView from '../view/SettingView';
 
 /**
  * 다크모드, 라이트모드 선택
