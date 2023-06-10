@@ -1,4 +1,4 @@
-import {TableView} from '../view';
+import TableView from './TableView';
 
 const ItemSituations = ({route}: {route: any}) => {
   const data = route?.params?.data as any[];

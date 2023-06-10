@@ -1,6 +1,6 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createStackNavigator} from '@react-navigation/stack';
-import {ItemDetail, ItemSituations, Search, Setting} from '../container';
+import {ItemDetail, Search, Setting} from '../container';
+import ItemSituations from '../view/ItemSituationScreen';
 
 const Stack = createNativeStackNavigator();
 

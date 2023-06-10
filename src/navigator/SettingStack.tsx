@@ -1,5 +1,4 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createStackNavigator} from '@react-navigation/stack';
 import {Setting} from '../container';
 
 const stack = createNativeStackNavigator();

@@ -1,4 +1,5 @@
-import {ItemListView, LoadingView} from '../view';
+import ItemListView from './ItemListVIew';
+import LoadingView from './LoadingView';
 
 interface Props {
   isLoading: boolean;

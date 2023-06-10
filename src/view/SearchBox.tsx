@@ -1,4 +1,4 @@
-import {SearchBoxView} from '../view';
+import SearchBoxView from './SearchBoxView';
 
 interface Props {
   onSearch: (input: string) => void;
