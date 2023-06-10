@@ -468,6 +468,8 @@ PODS:
     - React-perflogger (= 0.71.7)
   - RNCAsyncStorage (1.18.2):
     - React-Core
+  - RNCClipboard (1.11.2):
+    - React-Core
   - RNGoogleMobileAds (10.3.2):
     - Google-Mobile-Ads-SDK (= 10.3.0)
     - GoogleUserMessagingPlatform (= 2.0.1)
@@ -545,6 +547,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
   - RNGoogleMobileAds (from `../node_modules/react-native-google-mobile-ads`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
@@ -646,6 +649,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCClipboard:
+    :path: "../node_modules/@react-native-clipboard/clipboard"
   RNGoogleMobileAds:
     :path: "../node_modules/react-native-google-mobile-ads"
   RNScreens:
@@ -712,6 +717,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: c5c89f8f543842dd864b63ded1b0bbb9c9445328
   ReactCommon: dbfbe2f7f3c5ce4ce44f43f2fd0d5950d1eb67c5
   RNCAsyncStorage: ddc4ee162bfd41b0d2c68bf2d95acd81dd7f1f93
+  RNCClipboard: 3f0451a8100393908bea5c5c5b16f96d45f30bfc
   RNGoogleMobileAds: 3032aa481cbc5c93bf9d08d8247b681cf4a00c9f
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315

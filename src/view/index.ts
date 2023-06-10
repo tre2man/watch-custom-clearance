@@ -7,6 +7,7 @@ import SearchView from './SearchView';
 import SettingView from './ThemeModeSettingView';
 import StatusBarView from './StatusBarView';
 import TableView from './TableView';
+import BookmarkView from './BookmarkView';
 
 import ItemList from './ItemList';
 import SearchBox from './SearchBox';
@@ -22,6 +23,7 @@ export {
   SettingView,
   StatusBarView,
   TableView,
+  BookmarkView,
   ItemList,
   ItemSituation,
   SearchBox,
