@@ -1,4 +1,4 @@
-import {Button, SafeAreaView, View} from 'react-native';
+import {Button, SafeAreaView, StatusBar, View} from 'react-native';
 import {Dispatch, SetStateAction} from 'react';
 import {RadioButton} from 'react-native-paper';
 import {ThemeColor, ThemeState} from '../utils/ThemeState';
@@ -31,12 +31,13 @@ const ThemeModeSettingView = ({
   const [theme] = useRecoilState<ThemeColor>(ThemeState);
 
   return (
-    <SafeAreaView>
+    <View>
       <StatusBarView />
       <View
         style={{
           height: '100%',
           backgroundColor: theme === 'light' ? 'white' : '#121212',
+          paddingTop: (StatusBar.currentHeight || 0) + 10,
         }}>
         {textList.map(({title, value}, index) => {
           return (
@@ -64,7 +65,7 @@ const ThemeModeSettingView = ({
         })}
         <Button onPress={modalVisibleHandler} title="창 닫기" />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

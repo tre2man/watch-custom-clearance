@@ -1,25 +1,24 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Search from './container/Search';
-import Setting from './container/Setting';
 import {useRecoilState} from 'recoil';
-import {ThemeColor, ThemeState} from './utils/ThemeState';
+import {ThemeColor, ThemeState} from '../utils/ThemeState';
+import SettingStack from './SettingStack';
+import MainStack from './MainStack';
 
 const Tab = createBottomTabNavigator();
 
 /**
- * 하단 탭에 대한 상태 (홈(검색 로직들), 설정)
- * App.tsx 다음으로 최상위 컴포넌트
+ * 각 탭에 대한 스택을 표시
  * @returns
  */
-export const Main = () => {
+const TapNavigator = () => {
   const [theme] = useRecoilState<ThemeColor>(ThemeState);
 
   return (
     <Tab.Navigator initialRouteName="Search">
       <Tab.Screen
         name="Search"
-        component={Search}
+        component={MainStack}
         options={{
           title: '홈',
           headerShown: false,
@@ -33,8 +32,8 @@ export const Main = () => {
         }}
       />
       <Tab.Screen
-        name="Setting"
-        component={Setting}
+        name="SettingStack"
+        component={SettingStack}
         options={{
           title: '설정',
           headerShown: false,
@@ -50,3 +49,5 @@ export const Main = () => {
     </Tab.Navigator>
   );
 };
+
+export default TapNavigator;
