@@ -4,6 +4,7 @@ import {useRecoilState} from 'recoil';
 import {ThemeColor, ThemeState} from '../utils/ThemeState';
 import SettingStack from './SettingStack';
 import MainStack from './MainStack';
+import BookmarkStack from './BookmarkStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,6 +25,21 @@ const TapNavigator = () => {
           headerShown: false,
           tabBarIcon: ({color, size}) => (
             <Icon name="home" color={color} size={size} />
+          ),
+          tabBarActiveTintColor: theme === 'light' ? 'black' : 'white',
+          tabBarActiveBackgroundColor: theme === 'light' ? 'white' : '#121212',
+          tabBarInactiveBackgroundColor:
+            theme === 'light' ? 'white' : '#121212',
+        }}
+      />
+      <Tab.Screen
+        name="BookmarkStack"
+        component={BookmarkStack}
+        options={{
+          title: '북마크',
+          headerShown: false,
+          tabBarIcon: ({color, size}) => (
+            <Icon name="bookmarks" color={color} size={size} />
           ),
           tabBarActiveTintColor: theme === 'light' ? 'black' : 'white',
           tabBarActiveBackgroundColor: theme === 'light' ? 'white' : '#121212',
